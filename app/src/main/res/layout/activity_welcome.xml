@@ -56,6 +56,12 @@
             android:text="dont have an account? sign up"
             android:textColor="@color/secondary_text" />
 
+        <Button
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="dima" />
+
     </LinearLayout>
 
     <TextView
