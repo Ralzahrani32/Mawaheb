@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:padding="30dp"
         android:text="Welcome\nback"
-        android:textColor="@color/black"
+        android:textColor="@color/primary_text"
         android:textSize="36sp"
         android:textStyle="bold"/>
 
@@ -37,15 +37,16 @@
         android:ems="10"
         android:gravity="center"
         android:hint="Enter Password"
-        android:inputType="numberPassword" />
+        android:inputType="textPassword" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/forgetPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="right"
         android:padding="16dp"
-        android:text="Forget Password?" />
+        android:text="Forget Password?"
+        android:textSize="18sp"/>
 
     <Button
         android:id="@+id/button2"
@@ -55,11 +56,5 @@
         android:layout_marginTop="10dp"
         android:layout_marginRight="40dp"
         android:text="Login" />
-
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Button" />
 
 </LinearLayout>

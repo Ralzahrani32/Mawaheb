@@ -10,6 +10,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Mawaheb">
         <activity
+            android:name=".ForgetPasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ReigsterAsCompanyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ContactUsActivity"
+            android:exported="true" />
+        <activity
+            android:name=".SelectUserTypeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SignupAsUser"
+            android:exported="false" />
+        <activity
             android:name=".loginActivity"
             android:exported="true" />
         <activity
