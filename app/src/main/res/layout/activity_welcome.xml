@@ -46,12 +46,6 @@
             android:layout_marginRight="30dp"
             android:text="go to signin" />
 
-        <Button
-            android:id="@+id/button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="dima" />
-
         <TextView
             android:id="@+id/goToSignup"
             android:layout_width="match_parent"
@@ -61,18 +55,6 @@
             android:padding="16dp"
             android:text="dont have an account? sign up"
             android:textColor="@color/secondary_text" />
-
-        <Button
-            android:id="@+id/button4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="bushra" />
-
-        <Button
-            android:id="@+id/button5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="ٍrenad" />
 
     </LinearLayout>
 
