@@ -18,6 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="80dp"
+            android:clickable="false"
             android:gravity="center"
             android:text="welcome"
             android:textColor="@color/black"
@@ -35,25 +36,27 @@
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="match_parent"
-            android:layout_height="220dp"
-            app:srcCompat="@drawable/bg_delete" />
+            android:layout_height="300dp"
+            app:srcCompat="@drawable/bg_delete"
+            tools:ignore="ImageContrastCheck" />
 
         <Button
-            android:id="@+id/goToSignin"
+            android:id="@+id/button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
-            android:text="go to signin" />
+            android:text="go to signin"
+            android:textColor="@color/icons" />
 
         <TextView
-            android:id="@+id/goToSignup"
+            android:id="@+id/textView4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:gravity="center"
             android:padding="16dp"
-            android:text="dont have an account? sign up"
+            android:text="dont have an account sign up"
             android:textColor="@color/secondary_text" />
 
     </LinearLayout>
@@ -61,9 +64,10 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:padding="16dp"
         android:text="SKIP"
-        android:textColor="@color/primary"/>
+        android:textColor="#2E7D32" />
 
 </RelativeLayout>
