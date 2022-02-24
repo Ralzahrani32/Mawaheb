@@ -8,7 +8,6 @@
     tools:context=".loginActivity">
 
     <TextView
-        android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="30dp"
@@ -18,7 +17,7 @@
         android:textStyle="bold"/>
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress"
+        android:id="@+id/Email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
@@ -29,7 +28,7 @@
         android:inputType="textEmailAddress" />
 
     <EditText
-        android:id="@+id/editTextNumberPassword"
+        android:id="@+id/Password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
@@ -49,7 +48,7 @@
         android:textSize="18sp"/>
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/Login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="40dp"
