@@ -15,6 +15,8 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class SignupAsUser extends AppCompatActivity {
 private FirebaseAuth mAuth;
 private ImageView mSelectImage;
