@@ -11,5 +11,5 @@ public class ContactUsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contact_us);
     }
-    //hjgghjjkkjjhh
+    
 }
