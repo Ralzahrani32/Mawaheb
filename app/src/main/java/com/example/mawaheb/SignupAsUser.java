@@ -90,7 +90,7 @@ private DatabaseReference mDatabase;
                                             user.setEmail(mEmail.getText().toString());
                                             user.setTalents(mTalents.getSelectedItem().toString());
                                             user.setUID(mAuth.getCurrentUser().getUid());
-
+                                            mDatabase.child("users").child(mAuth.getCurrentUser().getUid()).setValue(user);
                                     Toast.makeText(SignupAsUser.this, "User Create Successfully", Toast.LENGTH_SHORT).show();
                                 }else{
                                     Toast.makeText(SignupAsUser.this,task.getException().getMessage(),Toast.LENGTH_SHORT).show();
