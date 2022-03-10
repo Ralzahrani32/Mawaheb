@@ -13,6 +13,7 @@ public class User {
     private String email;
     private String phone;
     private String talents;
+    private String userType;
 
 
     public String getUID() {
@@ -53,5 +54,13 @@ public class User {
 
     public void setTalents(String talents) {
         this.talents = talents;
+    }
+
+    public String getUserType() {
+        return userType;
+    }
+
+    public void setUserType(String userType) {
+        this.userType = userType;
     }
 }
