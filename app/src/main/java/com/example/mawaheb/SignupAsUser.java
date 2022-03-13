@@ -20,6 +20,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class SignupAsUser extends AppCompatActivity {
 private FirebaseAuth mAuth;
@@ -31,6 +33,7 @@ private Spinner mTalents;
 private EditText mPassword;
 private EditText mConfirmPassword;
 private Button mSignup;
+private DatabaseReference mDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +42,8 @@ private Button mSignup;
         getSupportActionBar().setTitle("Signup");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         mAuth=FirebaseAuth.getInstance();
+
+        mDatabase = FirebaseDatabase.getInstance().getReference();
 
         mSelectImage=findViewById(R.id.select_image);
         mName=findViewById(R.id.name);
@@ -79,6 +84,14 @@ private Button mSignup;
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if(task.isSuccessful()){
+                                    User user = new User();
+                                            user.setName(mName.getText().toString());
+                                            user.setPhone(mPhone.getText().toString());
+                                            user.setEmail(mEmail.getText().toString());
+                                            user.setTalents(mTalents.getSelectedItem().toString());
+                                            user.setUID(mAuth.getCurrentUser().getUid());
+                                            user.setUserType("User");
+                                            mDatabase.child("users").child(mAuth.getCurrentUser().getUid()).setValue(user);
                                     Toast.makeText(SignupAsUser.this, "User Create Successfully", Toast.LENGTH_SHORT).show();
                                 }else{
                                     Toast.makeText(SignupAsUser.this,task.getException().getMessage(),Toast.LENGTH_SHORT).show();
