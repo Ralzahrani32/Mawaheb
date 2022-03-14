@@ -14,6 +14,8 @@ public class User {
     private String phone;
     private String talents;
     private String userType;
+    private String lecinceNumber;
+
 
 
     public String getUID() {
@@ -62,5 +64,13 @@ public class User {
 
     public void setUserType(String userType) {
         this.userType = userType;
+    }
+
+    public String getLecinceNumber() {
+        return lecinceNumber;
+    }
+
+    public void setLecinceNumber(String lecinceNumber) {
+        this.lecinceNumber = lecinceNumber;
     }
 }

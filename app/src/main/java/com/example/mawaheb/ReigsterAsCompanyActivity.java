@@ -20,6 +20,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class ReigsterAsCompanyActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
@@ -32,6 +34,7 @@ public class ReigsterAsCompanyActivity extends AppCompatActivity {
     private EditText mPassword;
     private EditText mConfirmPassword;
     private Button mSignup;
+    private DatabaseReference mDatabase;
 
 
     @Override
@@ -50,6 +53,7 @@ public class ReigsterAsCompanyActivity extends AppCompatActivity {
         mConfirmPassword = findViewById(R.id.confirmpassword);
         mSignup = findViewById(R.id.signup);
         mAuth = FirebaseAuth.getInstance();
+        mDatabase = FirebaseDatabase.getInstance().getReference();
         mSelectImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -86,6 +90,15 @@ public class ReigsterAsCompanyActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(task.isSuccessful()){
+                                User user = new User();
+                                user.setName(mName.getText().toString());
+                                user.setPhone(mPhone.getText().toString());
+                                user.setEmail(mEmail.getText().toString());
+                                user.setTalents(mTalents.getSelectedItem().toString());
+                                user.setUID(mAuth.getCurrentUser().getUid());
+                                user.setLecinceNumber(mLecinceNumber.getText().toString());
+                                user.setUserType("Company");
+                                mDatabase.child("users").child(mAuth.getCurrentUser().getUid()).setValue(user);
                                 Toast.makeText(ReigsterAsCompanyActivity.this, "User Create Successfully", Toast.LENGTH_SHORT).show();
                             }else{
                                 Toast.makeText(ReigsterAsCompanyActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
