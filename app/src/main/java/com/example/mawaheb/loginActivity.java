@@ -17,12 +17,16 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class loginActivity extends AppCompatActivity {
     private EditText mEmail;
     private EditText mPassword;
     private Button mLogin;
     private FirebaseAuth mAuth;
+    private DatabaseReference mDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +35,7 @@ public class loginActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Login");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         mAuth = FirebaseAuth.getInstance();
+        mDatabase = FirebaseDatabase.getInstance().getReference();
         TextView forgetPassword= findViewById(R.id.forgetPassword);
         forgetPassword.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,7 +59,21 @@ public class loginActivity extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if(task.isSuccessful()){
-
+                                    mDatabase.child("users").child(mAuth.getCurrentUser().getUid()).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<DataSnapshot> task) {
+                                            if (!task.isSuccessful()) {
+                                                Toast.makeText(loginActivity.this, ""+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                            }
+                                            else {
+                                               User user = task.getResult().getValue(User.class);
+                                               if(user.getUserType().equals("User")) {
+                                                   Intent intent = new Intent(loginActivity.this,HomeUserMainActivity.class)
+                                                           startActiv
+                                               }
+                                            }
+                                        }
+                                    });
                                     Toast.makeText(loginActivity.this, "User Login Successfully", Toast.LENGTH_SHORT).show();
                                 }else{
                                     Toast.makeText(loginActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
