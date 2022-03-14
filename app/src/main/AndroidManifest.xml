@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Mawaheb">
         <activity
+            android:name=".HomeUserMainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".HomeCompanyActivity2"
+            android:exported="false" />
+        <activity
             android:name=".ForgetPasswordActivity"
             android:exported="false" />
         <activity
