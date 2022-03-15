@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.mawaheb">
 
     <application
@@ -11,7 +12,8 @@
         android:theme="@style/Theme.Mawaheb">
         <activity
             android:name=".fragment_search"
-            android:exported="false" />
+            android:exported="false"
+            tools:ignore="Instantiatable" />
         <activity
             android:name=".HomeUserMainActivity"
             android:exported="false" />
