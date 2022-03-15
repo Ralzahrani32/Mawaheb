@@ -114,19 +114,32 @@ private DatabaseReference mDatabase;
                                     }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                                         @Override
                                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                                            // taskSnapshot.getMetadata() contains file metadata such as size, content-type, etc.
-                                            // ...
-                                        }
-                                    });
 
-                                    User user = new User();
+                                            User user = new User();
                                             user.setName(mName.getText().toString());
                                             user.setPhone(mPhone.getText().toString());
                                             user.setEmail(mEmail.getText().toString());
                                             user.setTalents(mTalents.getSelectedItem().toString());
                                             user.setUID(mAuth.getCurrentUser().getUid());
                                             user.setUserType("User");
-                                            mDatabase.child("users").child(mAuth.getCurrentUser().getUid()).setValue(user);
+                                            mDatabase.child("users").child(mAuth.getCurrentUser().getUid()).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>()
+                                             {
+                                                @Override
+                                              public void onComplete(@NonNull Task<Void> task) {
+                                              if (task.isSuccessful()) {
+
+                                                  Toast.makeText(SignupAsUser.this, "User Register Successfully", Toast.LENGTH_SHORT).show();
+                                              }else{
+                                                  Toast.makeText(SignupAsUser.this,task.getException().getMessage(),Toast.LENGTH_SHORT).show();
+
+                                              }
+                                                              }
+                                                          }
+                                            );
+                                        }
+                                    });
+
+
                                     Toast.makeText(SignupAsUser.this, "User Create Successfully", Toast.LENGTH_SHORT).show();
                                 }else{
                                     Toast.makeText(SignupAsUser.this,task.getException().getMessage(),Toast.LENGTH_SHORT).show();

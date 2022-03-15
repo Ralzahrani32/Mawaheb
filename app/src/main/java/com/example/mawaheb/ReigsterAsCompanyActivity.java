@@ -5,6 +5,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -17,11 +19,18 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+
+import java.io.ByteArrayOutputStream;
 
 public class ReigsterAsCompanyActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
@@ -89,16 +98,47 @@ public class ReigsterAsCompanyActivity extends AppCompatActivity {
                     mAuth.createUserWithEmailAndPassword(mEmail.getText().toString(),mPassword.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
-                            if(task.isSuccessful()){
-                                User user = new User();
-                                user.setName(mName.getText().toString());
-                                user.setPhone(mPhone.getText().toString());
-                                user.setEmail(mEmail.getText().toString());
-                                user.setTalents(mTalents.getSelectedItem().toString());
-                                user.setUID(mAuth.getCurrentUser().getUid());
-                                user.setLecinceNumber(mLecinceNumber.getText().toString());
-                                user.setUserType("Company");
-                                mDatabase.child("users").child(mAuth.getCurrentUser().getUid()).setValue(user);
+                            if(task.isSuccessful()) {
+
+                                mSelectImage.setDrawingCacheEnabled(true);
+                                mSelectImage.buildDrawingCache();
+                                Bitmap bitmap = ((BitmapDrawable) mSelectImage.getDrawable()).getBitmap();
+                                ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+                                byte[] data = baos.toByteArray();
+                                StorageReference storageRef = FirebaseStorage.getInstance().getReference().child("UsersImages").child(mAuth.getCurrentUser().getUid()+".jpeg");
+
+                                UploadTask uploadTask = storageRef.putBytes(data);
+                                uploadTask.addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception exception) {
+                                        // Handle unsuccessful uploads
+                                    }
+                                }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                                    @Override
+                                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                                        User user = new User();
+                                        user.setName(mName.getText().toString());
+                                        user.setPhone(mPhone.getText().toString());
+                                        user.setEmail(mEmail.getText().toString());
+                                        user.setTalents(mTalents.getSelectedItem().toString());
+                                        user.setUID(mAuth.getCurrentUser().getUid());
+                                        user.setLecinceNumber(mLecinceNumber.getText().toString());
+                                        user.setUserType("Company");
+                                        mDatabase.child("users").child(mAuth.getCurrentUser().getUid()).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                            @Override
+                                            public void onComplete(@NonNull Task<Void> task) {
+                                                if(task.isSuccessful()){
+                                                    Toast.makeText(ReigsterAsCompanyActivity.this, "Company Register Successfully", Toast.LENGTH_SHORT).show();
+                                                }else{
+                                                    Toast.makeText(ReigsterAsCompanyActivity.this, ""+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                                }
+                                            }
+                                        });
+                                    }
+                                });
+
+
                                 Toast.makeText(ReigsterAsCompanyActivity.this, "User Create Successfully", Toast.LENGTH_SHORT).show();
                             }else{
                                 Toast.makeText(ReigsterAsCompanyActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
