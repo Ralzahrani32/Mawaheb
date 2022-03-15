@@ -14,7 +14,7 @@ public class fragment_search extends Fragment {
     private EditText nameBox;
     private ImageButton search;
     private RecyclerView recyclerView;
-
+    ArrayList<Talent> talents = new ArrayList<>();
 
 
 }
