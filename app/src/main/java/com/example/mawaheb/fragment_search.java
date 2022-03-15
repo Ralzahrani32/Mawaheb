@@ -8,11 +8,13 @@ import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.ImageButton;
 
+import java.util.ArrayList;
+
 public class fragment_search extends Fragment {
     private EditText nameBox;
     private ImageButton search;
     private RecyclerView recyclerView;
-    
+
 
 
 }
