@@ -1,14 +1,18 @@
 package com.example.mawaheb;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.widget.EditText;
+import android.widget.ImageButton;
 
-public class fragment_search extends AppCompatActivity {
+public class fragment_search extends Fragment {
+    private EditText nameBox;
+    private ImageButton search;
+    private RecyclerView recyclerView;
+    
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_fragment_search);
-    }
+
 }
