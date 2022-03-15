@@ -25,8 +25,13 @@ public class fragment_search extends Fragment {
         View view = inflater.inflate(R.layout.fragment_search, container, false);
         nameBox = view.findViewById(R.id.nameBox);
         search = view.findViewById(R.id.search);
-
        recyclerView =view.findViewById(R.id.recyclerView);
+
+        RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity(),RecyclerView.VERTICAL,false);
+        recyclerView.setLayoutManager(linearLayoutManager);
+        TalentAdapter adapter = new TalentAdapter(getActivity(),talents);
+        recyclerView.setAdapter(adapter);
 
 
         return view;
