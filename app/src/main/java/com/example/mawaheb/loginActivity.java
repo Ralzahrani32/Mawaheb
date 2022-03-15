@@ -68,11 +68,11 @@ public class loginActivity extends AppCompatActivity {
                                             else {
                                                User user = task.getResult().getValue(User.class);
                                                if(user.getUserType().equals("User")) {
-                                                   Intent intent = new Intent(loginActivity.this,HomeUserMainActivity.class)
+                                                   Intent intent = new Intent(loginActivity.this,HomeUserMainActivity.class);
                                                            startActivity(intent);
                                                }
                                                else {
-                                                   Intent intent = new Intent(loginActivity.this,HomeCompanyActivity2.class)
+                                                   Intent intent = new Intent(loginActivity.this,HomeCompanyActivity2.class);
                                                    startActivity(intent);
                                                }
                                             }
