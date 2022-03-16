@@ -15,6 +15,7 @@ public class User {
     private String talents;
     private String userType;
     private String lecinceNumber;
+    private String bio;
 
 
 
@@ -72,5 +73,13 @@ public class User {
 
     public void setLecinceNumber(String lecinceNumber) {
         this.lecinceNumber = lecinceNumber;
+    }
+
+    public String getBio() {
+        return bio;
+    }
+
+    public void setBio(String bio) {
+        this.bio = bio;
     }
 }
