@@ -11,6 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Mawaheb">
         <activity
+            android:name=".AddTalentActivity"
+            android:exported="false" />
+        <activity
             android:name=".fragment_search"
             android:exported="false"
             tools:ignore="Instantiatable" />
