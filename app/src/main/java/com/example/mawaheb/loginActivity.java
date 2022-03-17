@@ -52,8 +52,7 @@ public class loginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if(TextUtils.isEmpty(mEmail.getText())){
                     mEmail.setError("Enter Email");
-                }
-                }else{  mAuth.createUserWithEmailAndPassword(mEmail.getText().toString(),mPassword.getText().toString())
+                } else{  mAuth.createUserWithEmailAndPassword(mEmail.getText().toString(),mPassword.getText().toString())
                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
