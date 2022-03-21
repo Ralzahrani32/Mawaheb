@@ -17,6 +17,14 @@
             android:layout_width="match_parent"
             android:layout_height="200dp"
             app:srcCompat="@drawable/add__image" />
+
+        <EditText
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint="title" />
     </LinearLayout>
 
 </ScrollView>
