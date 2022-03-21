@@ -34,6 +34,14 @@
             android:id="@+id/type"
             android:textSize="18sp"/>
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:text="enter"
+            android:id="@+id/details"
+            android:textSize="18sp"/>
+
     </LinearLayout>
 
 </ScrollView>
