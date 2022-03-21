@@ -19,5 +19,11 @@ public class AddTalentActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_talent);
+        
+        selectImage = findViewById(R.id.select_image);
+        title = findViewById(R.id.title);
+        details = findViewById(R.id.details);
+        talents = findViewById(R.id.talents);
+        add = findViewById(R.id.add);
     }
 }
