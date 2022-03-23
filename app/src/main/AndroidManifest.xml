@@ -11,6 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Mawaheb">
         <activity
+            android:name=".itemChatActivity"
+            android:exported="true" />
+        <activity
             android:name=".ChatActivity"
             android:exported="true" />
         <activity android:name=".fragment_section" />
