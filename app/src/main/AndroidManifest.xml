@@ -11,13 +11,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Mawaheb">
         <activity
-            android:name=".fragment_section"/>
+            android:name=".ChatActivity"
+            android:exported="true" />
+        <activity android:name=".fragment_section" />
         <activity
             android:name=".InquiriesDetailsActivity"
             android:exported="false" />
         <activity
             android:name=".addInquiriesActivity"
-        android:exported="false" />
+            android:exported="false" />
         <activity
             android:name=".item_talent"
             android:exported="false" />
