@@ -38,12 +38,21 @@
         <entry key="..\:/Users/saja/Documents/GitHub/mawaheb/app/src/main/res/layout/fragment_chat.xml" value="0.17708333333333334" />
         <entry key="..\:/Users/saja/Documents/GitHub/mawaheb/app/src/main/res/layout/fragment_notification.xml" value="0.17708333333333334" />
         <entry key="..\:/Users/saja/Documents/GitHub/mawaheb/app/src/main/res/layout/fragment_search.xml" value="0.24547101449275363" />
+        <entry key="app/src/main/res/layout/activity_add_talent.xml" value="0.15572916666666667" />
+        <entry key="app/src/main/res/layout/activity_chat.xml" value="0.14166666666666666" />
         <entry key="app/src/main/res/layout/activity_contact_us.xml" value="0.13903985507246377" />
         <entry key="app/src/main/res/layout/activity_forget_password.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_home_company2.xml" value="0.19746376811594202" />
+        <entry key="app/src/main/res/layout/activity_home_user_main.xml" value="0.15572916666666667" />
+        <entry key="app/src/main/res/layout/activity_inquiries_details.xml" value="0.15572916666666667" />
+        <entry key="app/src/main/res/layout/activity_item_chat.xml" value="0.14166666666666666" />
+        <entry key="app/src/main/res/layout/activity_item_talent.xml" value="0.15572916666666667" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.20652173913043478" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.15572916666666667" />
+        <entry key="app/src/main/res/layout/activity_reigster_as_company.xml" value="0.15572916666666667" />
         <entry key="app/src/main/res/layout/activity_select_user_type.xml" value="0.24270833333333333" />
         <entry key="app/src/main/res/layout/activity_signup_as_user.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_talent_details2.xml" value="0.15572916666666667" />
         <entry key="app/src/main/res/layout/activity_welcome.xml" value="0.23161764705882354" />
         <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.20652173913043478" />
         <entry key="app/src/main/res/layout/fragment_search.xml" value="0.20652173913043478" />
