@@ -11,6 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Mawaheb">
         <activity
+            android:name=".HomeAdminActivity"
+            android:exported="false" />
+        <activity
             android:name=".add_section"
             android:exported="false" />
         <activity
