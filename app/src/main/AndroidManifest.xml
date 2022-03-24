@@ -11,6 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Mawaheb">
         <activity
+            android:name=".bottom_nav_menu"
+            android:exported="false" />
+        <activity
             android:name=".itemChatActivity"
             android:exported="true" />
         <activity
