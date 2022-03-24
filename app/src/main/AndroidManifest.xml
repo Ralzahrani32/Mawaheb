@@ -24,9 +24,6 @@
             android:name=".addInquiriesActivity"
             android:exported="false" />
         <activity
-            android:name=".item_talent"
-            android:exported="false" />
-        <activity
             android:name=".Talent_Details_Activity2"
             android:exported="false" />
         <activity
