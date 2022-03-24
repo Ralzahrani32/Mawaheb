@@ -11,6 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Mawaheb">
         <activity
+            android:name=".show_talent"
+            android:exported="false" />
+        <activity
             android:name=".ManageSectionsFragment"
             android:exported="false" />
         <activity
