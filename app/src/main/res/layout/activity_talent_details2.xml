@@ -42,6 +42,17 @@
             android:id="@+id/details"
             android:textSize="18sp"/>
 
+        <android.widget.Button
+            android:id="@+id/delete"
+            android:layout_width="230dp"
+            android:visibility="gone"
+            android:layout_gravity="center"
+            android:textColor="@color/white"
+            android:background="@drawable/bg_btn_delete"
+            android:layout_height="wrap_content"
+            android:text="Delete" />
+
+
     </LinearLayout>
 
 </ScrollView>
