@@ -17,8 +17,9 @@
         android:layout_centerVertical="true"
         android:layout_toRightOf="@+id/imageSection"
         android:padding="16dp"
-        android:text="lshdf"
+        android:text="text"
         android:textSize="18sp" />
+    
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
