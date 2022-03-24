@@ -24,7 +24,44 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:hint="Name" />
-        
+
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:enabled="false"
+            android:hint="Email"
+            android:inputType="textEmailAddress" />
+
+        <EditText
+            android:id="@+id/phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:maxEms="10"
+            android:maxLength="10"
+            android:hint="Phone"
+            android:inputType="phone" />
+
+        <EditText
+            android:id="@+id/talents"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:maxEms="10"
+            android:maxLength="10"
+            android:hint="talans" />
+
+        <EditText
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:id="@+id/lecinceNumber"
+            android:hint="Lecince Number"
+            android:inputType="phone" />
+
     </LinearLayout>
 
 </ScrollView>
