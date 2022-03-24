@@ -20,7 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="16dp"
-            android:text="enter"
+            android:text="Title"
             android:id="@+id/title"
             android:textSize="18sp"/>
 
@@ -28,7 +28,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="16dp"
-            android:text="enter"
+            android:text="Talent"
             android:drawablePadding="3dp"
             android:drawableLeft="@drawable/ic_baseline_filter_list_24"
             android:id="@+id/type"
@@ -38,7 +38,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="16dp"
-            android:text="enter"
+            android:text="Detail"
             android:id="@+id/details"
             android:textSize="18sp"/>
 
