@@ -8,10 +8,14 @@
         <entry key="..\:/Users/At/Documents/GitHub/app/src/main/res/layout/activity_select_user_type.xml" value="0.13632246376811594" />
         <entry key="..\:/Users/At/Documents/GitHub/app/src/main/res/layout/activity_signup_as_user.xml" value="0.21" />
         <entry key="..\:/Users/At/Documents/GitHub/app/src/main/res/layout/activity_welcome.xml" value="0.13632246376811594" />
+<<<<<<< Updated upstream
         <entry key="..\:/Users/HP/Documents/GitHub/app/src/main/res/layout/activity_add_inquiries.xml" value="0.1" />
         <entry key="..\:/Users/HP/Documents/GitHub/app/src/main/res/layout/activity_inquiries_details.xml" value="0.1644021739130435" />
         <entry key="..\:/Users/HP/Documents/GitHub/app/src/main/res/layout/activity_inquiry_details.xml" value="0.2" />
         <entry key="..\:/Users/HP/Documents/GitHub/app/src/main/res/layout/fragment_manage_inquiries.xml" value="0.1" />
+=======
+        <entry key="..\:/Users/Not De/Documents/mawaheb/app/src/main/res/drawable/bg_btn_delete.xml" value="0.1" />
+>>>>>>> Stashed changes
         <entry key="..\:/Users/Not De/Documents/mawaheb/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.1" />
         <entry key="..\:/Users/Not De/Documents/mawaheb/app/src/main/res/drawable/ic_baseline_filter_list_24.xml" value="0.1" />
         <entry key="..\:/Users/Not De/Documents/mawaheb/app/src/main/res/layout/activity_add_inquiries.xml" value="0.1956521739130435" />
@@ -32,6 +36,11 @@
         <entry key="..\:/Users/Not De/Documents/mawaheb/app/src/main/res/layout/fragment_profile.xml" value="0.1956521739130435" />
         <entry key="..\:/Users/Not De/Documents/mawaheb/app/src/main/res/layout/fragment_search.xml" value="0.1956521739130435" />
         <entry key="..\:/Users/Not De/Documents/mawaheb/app/src/main/res/layout/fragment_talents.xml" value="0.1956521739130435" />
+<<<<<<< Updated upstream
+=======
+        <entry key="..\:/Users/Not De/Documents/mawaheb/app/src/main/res/menu/bottom_nav_menu.xml" value="0.3046875" />
+        <entry key="..\:/Users/Not De/Documents/mawaheb/app/src/main/res/menu/bottom_navigation.xml" value="0.3046875" />
+>>>>>>> Stashed changes
         <entry key="..\:/Users/lenovo-pc/Downloads/Mawaheb/GitHub/app/src/main/res/layout/activity_contact_us.xml" value="0.14130434782608695" />
         <entry key="..\:/Users/lenovo-pc/OneDrive/GitHub/app/src/main/res/layout/activity_reigster_as_company.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/saja/Documents/GitHub/mawaheb/app/src/main/res/drawable/bg_btn_search.xml" value="0.236" />
