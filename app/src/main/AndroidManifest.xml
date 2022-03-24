@@ -11,21 +11,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Mawaheb">
         <activity
+<<<<<<< HEAD
             android:name=".fragment_profile_company"
             android:exported="false" />
         <activity
             android:name=".bottom_nav_menu"
             android:exported="false" />
         <activity
+=======
+>>>>>>> 53e8dc756208aabe8cb4f56b2c07b29baf15b69c
             android:name=".itemChatActivity"
             android:exported="true" />
         <activity
             android:name=".ChatActivity"
             android:exported="true" />
         <activity android:name=".fragment_section" />
-        <activity
-            android:name=".InquiriesDetailsActivity"
-            android:exported="false" />
         <activity
             android:name=".addInquiriesActivity"
             android:exported="false" />
