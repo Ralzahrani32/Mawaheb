@@ -11,6 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Mawaheb">
         <activity
+            android:name=".fragment_profile_company"
+            android:exported="false" />
+        <activity
             android:name=".bottom_nav_menu"
             android:exported="false" />
         <activity
