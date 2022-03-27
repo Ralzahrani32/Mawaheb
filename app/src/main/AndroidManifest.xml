@@ -11,6 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Mawaheb">
         <activity
+            android:name=".addcoordinatorActivity"
+            android:exported="false" />
+        <activity
             android:name=".homecoordinatorActivity"
             android:exported="false" />
         <activity
