@@ -4,7 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+import java.util.ArrayList;
+
 public class Show_talent extends AppCompatActivity {
+    ArrayList<Talent> talents = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
