@@ -1,4 +1,11 @@
 package com.example.mawaheb;
 
-public class Section {
+import java.io.Serializable;
+
+public class Section implements Serializable {
+    private String id;
+    private String title;
+    public String getId() {
+        return id;
+    }
 }

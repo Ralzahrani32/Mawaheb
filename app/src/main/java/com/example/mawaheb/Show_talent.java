@@ -1,5 +1,6 @@
 package com.example.mawaheb;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -9,6 +10,10 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -37,5 +42,23 @@ public class Show_talent extends AppCompatActivity {
         recyclerView.setLayoutManager(linearLayoutManager);
         TalentAdapter adapter = new TalentAdapter(this,talents);
         recyclerView.setAdapter(adapter);
+
+        FirebaseDatabase.getInstance().getReference("Talents").orderByChild("type").equalTo(section.getId()).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                talents.clear();
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()){
+                    Talent talent = dataSnapshot.getValue(Talent.class);
+                    talents.add(talent);
+                }
+                adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+        
     }
 }
