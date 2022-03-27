@@ -27,5 +27,7 @@ public class Show_talent extends AppCompatActivity {
                 startActivity(intent);
         }
         });
+        Intent intent = getIntent();
+        Section section = (Section) intent.getSerializableExtra("section");
     }
 }
