@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
+    android:padding="20dp"
     tools:context=".addInquiriesActivity">
 
   <LinearLayout
@@ -23,16 +23,7 @@
 
 
     <EditText
-        android:id="@+id/Date"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Date"
-        android:inputType="textPersonName"
-        android:minHeight="48dp" />
-
-    <EditText
-        android:id="@+id/Details"
+        android:id="@+id/details"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:ems="10"
@@ -42,12 +33,12 @@
         android:inputType="textEmailAddress" />
 
     <Button
-        android:id="@+id/Add"
+        android:id="@+id/send"
         android:layout_width="230dp"
         android:layout_marginTop="20dp"
         android:layout_gravity="center"
         android:layout_height="wrap_content"
-        android:text="add" />
+        android:text="send" />
 
   </LinearLayout>
 
