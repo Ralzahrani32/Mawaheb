@@ -71,6 +71,15 @@
             android:layout_gravity="center"
             android:layout_height="wrap_content"
             android:text="update" />
+
+        <android.widget.Button
+            android:id="@+id/logout"
+            android:layout_width="230dp"
+            android:layout_height="35dp"
+            android:textColor="@color/white"
+            android:background="@drawable/bg_btn_delete"
+            android:layout_gravity="center"
+            android:text="logout"/>
     </LinearLayout>
 
 </ScrollView>
