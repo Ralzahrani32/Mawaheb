@@ -46,7 +46,7 @@
             android:name=".HomeUserMainActivity"
             android:exported="false" />
         <activity
-            android:name=".HomeCompanyActivity2"
+            android:name=".HomeCompanyActivity"
             android:exported="false" />
         <activity
             android:name=".ForgetPasswordActivity"

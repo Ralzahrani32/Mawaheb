@@ -70,7 +70,7 @@ public class loginActivity extends AppCompatActivity {
                                                            startActivity(intent);
                                                }
                                                else {
-                                                   Intent intent = new Intent(loginActivity.this,HomeCompanyActivity2.class);
+                                                   Intent intent = new Intent(loginActivity.this, HomeCompanyActivity.class);
                                                    startActivity(intent);
                                                }
                                             }
