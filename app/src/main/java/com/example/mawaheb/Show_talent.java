@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class show_talent extends AppCompatActivity {
+public class Show_talent extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
