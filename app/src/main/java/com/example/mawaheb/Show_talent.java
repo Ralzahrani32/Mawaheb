@@ -1,6 +1,8 @@
 package com.example.mawaheb;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -29,5 +31,11 @@ public class Show_talent extends AppCompatActivity {
         });
         Intent intent = getIntent();
         Section section = (Section) intent.getSerializableExtra("section");
+
+        RecyclerView recyclerView = findViewById(R.id.recyclerView);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this,RecyclerView.VERTICAL,false);
+        recyclerView.setLayoutManager(linearLayoutManager);
+        TalentAdapter adapter = new TalentAdapter(this,talents);
+        recyclerView.setAdapter(adapter);
     }
 }
