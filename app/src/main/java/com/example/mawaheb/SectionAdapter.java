@@ -38,5 +38,10 @@ public class SectionAdapter extends RecyclerView.Adapter<SectionAdapter.UserView
         this.userType = userType;
     }
 
-
+    @NonNull
+    @Override
+    public UserViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(context).inflate(R.layout.item_section,parent,false);
+        return new UserViewHolder(view);
+    }
     }
