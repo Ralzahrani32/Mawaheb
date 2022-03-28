@@ -44,4 +44,17 @@ public class SectionAdapter extends RecyclerView.Adapter<SectionAdapter.UserView
         View view = LayoutInflater.from(context).inflate(R.layout.item_section,parent,false);
         return new UserViewHolder(view);
     }
-    }
+    @Override
+    public void onBindViewHolder(@NonNull UserViewHolder holder, int position) {
+        holder.title.setText(sections.get(position).getTitle());
+        StorageReference storageRef = FirebaseStorage.getInstance().getReference().child("SectionsImages").child(sections.get(position).getId()+".jpeg");
+        storageRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+                // Got the download URL for 'users/me/profile.png'
+                Glide.with(context)
+                        .load(uri)
+                        .into(holder.imageSection);
+            }
+        }
+}
