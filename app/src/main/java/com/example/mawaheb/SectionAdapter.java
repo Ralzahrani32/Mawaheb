@@ -56,5 +56,11 @@ public class SectionAdapter extends RecyclerView.Adapter<SectionAdapter.UserView
                         .load(uri)
                         .into(holder.imageSection);
             }
-        }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception exception) {
+
+            }
+        });
+
 }
