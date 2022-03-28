@@ -1,6 +1,8 @@
 package com.example.mawaheb;
 
-public class Talent {
+import java.io.Serializable;
+
+public class Talent implements Serializable {
     private String id;
     private String title;
     private String details;
