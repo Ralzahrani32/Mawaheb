@@ -23,9 +23,6 @@
             android:name=".InquiriesDetailsActivity"
             android:exported="false" />
         <activity
-            android:name=".itemChatActivity"
-            android:exported="true" />
-        <activity
             android:name=".ChatActivity"
             android:exported="true" />
         <activity android:name=".fragment_section" />
