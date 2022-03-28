@@ -98,5 +98,9 @@ public class SectionAdapter extends RecyclerView.Adapter<SectionAdapter.UserView
     public int getItemCount() {
         return sections.size();
     }
+    class UserViewHolder extends RecyclerView.ViewHolder {
+        ImageView imageSection, delete, edit;
+        TextView title;
+    }
 
 }
