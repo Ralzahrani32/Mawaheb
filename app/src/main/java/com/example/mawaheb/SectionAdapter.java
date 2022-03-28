@@ -87,5 +87,16 @@ public class SectionAdapter extends RecyclerView.Adapter<SectionAdapter.UserView
             }
 
         });
+        if(userType.equals("User") || userType.equals("Company") ){
+            holder.delete.setVisibility(View.GONE);
+            holder.edit.setVisibility(View.GONE);
+        }
+
+    }
+
+    @Override
+    public int getItemCount() {
+        return sections.size();
+    }
 
 }
