@@ -18,7 +18,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class Show_talent extends AppCompatActivity {
+public class ShowTalentsActivity extends AppCompatActivity {
     ArrayList<Talent> talents = new ArrayList<>();
 
     @Override
