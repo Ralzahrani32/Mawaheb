@@ -45,7 +45,7 @@ public class SectionAdapter extends RecyclerView.Adapter<SectionAdapter.UserView
         return new UserViewHolder(view);
     }
     @Override
-    public void onBindViewHolder(@NonNull UserViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull UserViewHolder holder, @SuppressLint("RecyclerView") int position) {
         holder.title.setText(sections.get(position).getTitle());
         StorageReference storageRef = FirebaseStorage.getInstance().getReference().child("SectionsImages").child(sections.get(position).getId()+".jpeg");
         storageRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
@@ -101,6 +101,27 @@ public class SectionAdapter extends RecyclerView.Adapter<SectionAdapter.UserView
     class UserViewHolder extends RecyclerView.ViewHolder {
         ImageView imageSection, delete, edit;
         TextView title;
+
+        public UserViewHolder(@NonNull View itemView) {
+            super(itemView);
+            title = itemView.findViewById(R.id.title);
+            imageSection = itemView.findViewById(R.id.imageSection);
+            delete = itemView.findViewById(R.id.delete);
+            edit = itemView.findViewById(R.id.edit);
+
+            if(userType.equals("User") || userType.equals("Company") ){
+                itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(v.getContext(),ShowTalentsActivity.class);
+                        intent.putExtra("section",sections.get(getAdapterPosition()));
+                        context.startActivity(intent);
+                    }
+                });
+            }
+
+        }
     }
+
 
 }
