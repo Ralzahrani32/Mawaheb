@@ -17,8 +17,10 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
@@ -76,13 +78,29 @@ public class AddSectionActivity extends AppCompatActivity {
                     }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-
-
-
+                            FirebaseDatabase.getInstance().getReference("Sections").child(id).setValue(section).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if(task.isSuccessful()){
+                                        Toast.makeText(AddSectionActivity.this, "Section Added Successfully", Toast.LENGTH_SHORT).show();
+                                    } else{
+                                        Toast.makeText(AddSectionActivity.this, ""+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            });
                         }
-
+                    });
+                }
+            }
+        });
     }
-}
+
+
+
+
+
+
+
             Uri uri;
             @Override
             protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -93,7 +111,8 @@ public class AddSectionActivity extends AppCompatActivity {
                 }
             }
             @Override
-            public boolean onOptionsItemSelected(@NonNull MenuItem MenuItem item) {
+            public boolean onOptionsItemSelected(@NonNull MenuItem  item) {
+                android.view.MenuItem item;
                 if(item.getItemId() == android.R.id.home){
                     finish();
                 }
