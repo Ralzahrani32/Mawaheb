@@ -46,6 +46,7 @@ public class ProfileFragment extends Fragment {
     private EditText Talents;
     private Button Update;
     private Button logout;
+    private Button addInquiry;
     private DatabaseReference mDatabase;
     User user;
 
@@ -62,6 +63,8 @@ public class ProfileFragment extends Fragment {
         Phone = view.findViewById(R.id.phone);
         Talents = view.findViewById(R.id.talents);
         Update = view.findViewById(R.id.update);
+        logout = view.findViewById(R.id.logout);
+        addInquiry = view.findViewById(R.id.addInquiry);
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
        SelectImage.setOnClickListener(new View.OnClickListener() {
@@ -140,6 +143,14 @@ public class ProfileFragment extends Fragment {
                         });
                     }
                 });
+            }
+        });
+
+        addInquiry.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(),addInquiriesActivity.class);
+                startActivity(intent);
             }
         });
         logout.setOnClickListener(new View.OnClickListener() {
