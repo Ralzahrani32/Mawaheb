@@ -8,8 +8,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
-public class AddSection extends AppCompatActivity {
+public class AddSectionActivity extends AppCompatActivity {
     private ImageView selectImage;
     private EditText title;
     private Button add;
@@ -31,6 +32,14 @@ public class AddSection extends AppCompatActivity {
                 startActivityForResult(intent,142);
             }
         });
+        add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(uri == null){
+                    Toast.makeText(AddSectionActivity.this, "Select Image", Toast.LENGTH_SHORT).show();
+                }else if(title.getText().toString().isEmpty()){
+                    title.setError("Enter title");
+                }else{
 
     }
 }

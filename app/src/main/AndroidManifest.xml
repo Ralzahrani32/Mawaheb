@@ -23,7 +23,7 @@
             android:name=".HomeAdminActivity"
             android:exported="false" />
         <activity
-            android:name=".AddSection"
+            android:name=".AddSectionActivity"
             android:exported="false" />
         <activity
             android:name=".InquiriesDetailsActivity"
