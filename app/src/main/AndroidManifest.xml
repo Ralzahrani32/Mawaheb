@@ -11,6 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Mawaheb">
         <activity
+            android:name=".EditSection"
+            android:exported="false" />
+        <activity
             android:name=".SectionAdapter"
             android:exported="false" />
         <activity

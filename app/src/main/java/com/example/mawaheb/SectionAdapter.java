@@ -65,7 +65,7 @@ public class SectionAdapter extends RecyclerView.Adapter<SectionAdapter.UserView
         holder.edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(),EditSectionActivity.class);
+                Intent intent = new Intent(v.getContext(),EditSection.class);
                 intent.putExtra("section",sections.get(position));
                 context.startActivity(intent);
             }
