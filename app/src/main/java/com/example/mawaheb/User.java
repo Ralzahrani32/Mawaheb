@@ -7,7 +7,9 @@ import android.widget.Spinner;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
     private String UID;
     private String name;
     private String email;
