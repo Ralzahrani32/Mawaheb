@@ -2,9 +2,13 @@ package com.example.mawaheb;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,5 +33,12 @@ public class ManageSectionsFragment extends Fragment {
                 startActivity(intent);
             }
         });
+        RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity(),RecyclerView.VERTICAL,false);
+        recyclerView.setLayoutManager(linearLayoutManager);
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        String userType = sharedPreferences.getString("userType","");
+        SectionAdapter adapter = new SectionAdapter(getActivity(),sections,userType);
+        recyclerView.setAdapter(adapter);
     }
 }
