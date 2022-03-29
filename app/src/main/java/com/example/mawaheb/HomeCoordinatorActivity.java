@@ -13,7 +13,7 @@ import android.view.MenuItem;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class homecoordinatorActivity extends AppCompatActivity {
+public class HomeCoordinatorActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +57,7 @@ public class homecoordinatorActivity extends AppCompatActivity {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
                     FirebaseAuth.getInstance().signOut();
-                    Intent intent = new Intent(homecoordinatorActivity.this,loginActivity.class);
+                    Intent intent = new Intent(HomeCoordinatorActivity.this,loginActivity.class);
                     startActivity(intent);
                     finish();
                 }

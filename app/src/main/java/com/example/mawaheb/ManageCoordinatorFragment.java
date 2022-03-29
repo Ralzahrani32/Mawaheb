@@ -15,7 +15,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
-public class managecoordinatorFragment extends Fragment {
+public class ManageCoordinatorFragment extends Fragment {
 
 
     ArrayList<User> users = new ArrayList<>();
@@ -28,7 +28,7 @@ public class managecoordinatorFragment extends Fragment {
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), addcoordinatorActivity.class);
+                Intent intent = new Intent(v.getContext(), AddCoordinatorActivity.class);
                 startActivity(intent);
             }
         });

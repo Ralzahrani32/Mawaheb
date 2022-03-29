@@ -4,11 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class EditsectionActivity extends AppCompatActivity {
+public class AddCoordinatorActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_editsection);
+        setContentView(R.layout.activity_addcoordinator);
     }
 }
