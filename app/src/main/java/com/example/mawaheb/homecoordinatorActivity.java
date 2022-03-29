@@ -20,6 +20,24 @@ public class homecoordinatorActivity extends AppCompatActivity {
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.home:
+                        setTitle("Talents");
+                        getSupportFragmentManager().beginTransaction().replace(R.id.containerLayout,new TalentsFragment()).commit();
+                        break;
+                    case R.id.ManageSections:
+                        setTitle("Sections");
+                        getSupportFragmentManager().beginTransaction().replace(R.id.containerLayout,new ManageSectionsFragment()).commit();
+                        break;
+                    case R.id.inquiries:
+                        setTitle("Inquiries");
+                        getSupportFragmentManager().beginTransaction().replace(R.id.containerLayout,new ManageInquiriesFragment()).commit();
+
+                        break;
+                }
+                return true;
+            }
+        });
+    }
 
     }
-}
