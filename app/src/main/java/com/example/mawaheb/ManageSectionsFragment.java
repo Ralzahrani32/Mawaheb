@@ -45,7 +45,7 @@ public class ManageSectionsFragment extends Fragment {
         String userType = sharedPreferences.getString("userType","");
         SectionAdapter adapter = new SectionAdapter(getActivity(),sections,userType);
         recyclerView.setAdapter(adapter);
-        
+
         FirebaseDatabase.getInstance().getReference("Sections").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
