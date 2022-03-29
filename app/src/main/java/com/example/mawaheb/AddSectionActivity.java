@@ -3,8 +3,11 @@ package com.example.mawaheb;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.room.parser.Section;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -13,6 +16,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.io.ByteArrayOutputStream;
 
 public class AddSectionActivity extends AppCompatActivity {
     private ImageView selectImage;
@@ -44,6 +51,18 @@ public class AddSectionActivity extends AppCompatActivity {
                 }else if(title.getText().toString().isEmpty()){
                     title.setError("Enter title");
                 }else{
+                    String id = FirebaseDatabase.getInstance().getReference("Sections").push().getKey();
+                    Section section = new Section();
+                    section.setTitle(title.getText().toString());
+                    section.setId(id);
+                    selectImage.setDrawingCacheEnabled(true);
+                    selectImage.buildDrawingCache();
+                    Bitmap bitmap = ((BitmapDrawable) selectImage.getDrawable()).getBitmap();
+                    ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                    ((Bitmap) bitmap).compress(Bitmap.CompressFormat.JPEG, 100, baos);
+                    byte[] data = baos.toByteArray();
+
+                }
 
     }
 }
