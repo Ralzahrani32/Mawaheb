@@ -20,4 +20,11 @@
         android:inputType="textPersonName"
         android:hint="title" />
 
+    <Button
+        android:id="@+id/update"
+        android:layout_width="230dp"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:text="update" />
+
 </LinearLayout>
