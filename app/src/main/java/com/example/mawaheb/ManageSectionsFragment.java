@@ -1,5 +1,6 @@
 package com.example.mawaheb;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -14,6 +15,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -40,5 +45,25 @@ public class ManageSectionsFragment extends Fragment {
         String userType = sharedPreferences.getString("userType","");
         SectionAdapter adapter = new SectionAdapter(getActivity(),sections,userType);
         recyclerView.setAdapter(adapter);
+        
+        FirebaseDatabase.getInstance().getReference("Sections").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                sections.clear();
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()){
+                    Section section = dataSnapshot.getValue(Section.class);
+                    sections.add(section);
+                }
+                adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+
+        return view;
     }
 }
