@@ -1,13 +1,16 @@
 package com.example.mawaheb;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -87,7 +90,25 @@ public class AddCoordinatorActivity extends AppCompatActivity {
                                 ByteArrayOutputStream baos = new ByteArrayOutputStream();
                                 bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
                                 byte[] data = baos.toByteArray();
+                                
                 }
 
     }
-}
+                        Uri uri;
+                        @Override
+                        protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+                            super.onActivityResult(requestCode, resultCode, data);
+                            if(requestCode == 142 && resultCode == RESULT_OK){
+                                uri = data.getData();
+                                mSelectImage.setImageURI(uri);
+                            }
+                        }
+
+                        @Override
+                        public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+                            if(item.getItemId() == android.R.id.home){
+                                finish();
+                            }
+                            return super.onOptionsItemSelected(item);
+                        }
+                    }
