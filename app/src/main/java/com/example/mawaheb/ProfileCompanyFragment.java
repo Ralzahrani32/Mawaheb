@@ -138,6 +138,35 @@ public class ProfileCompanyFragment extends Fragment {
                         public void onFailure(@NonNull Exception exception) {
 
                         }
+                    }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+
+                            user.setName(mName.getText().toString());
+                            user.setPhone(mPhone.getText().toString());
+                            user.setEmail(mEmail.getText().toString());
+                            user.setTalent(mTalents.getText().toString());
+                            user.setLecinceNumber(mLecinceNumber.getText().toString());
+                            user.setUserType("Company");
+
+                            mDatabase.child("users").child(user.getUID()).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if(task.isSuccessful()){
+                                        Toast.makeText(getActivity(), "Company  Information Edited Successfully", Toast.LENGTH_SHORT).show();
+                                    }else{
+                                        Toast.makeText(getActivity(), ""+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            });
+                        }
+                    });
+
+
                 }
+            }
+        });
+
+                        }
 
 }
