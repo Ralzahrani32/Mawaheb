@@ -21,7 +21,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 
-public class SectionFragment extends Fragment {
+public class SectionsFragment extends Fragment {
 
     ArrayList<Section> sections = new ArrayList<>();
 
