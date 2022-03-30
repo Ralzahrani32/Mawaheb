@@ -51,7 +51,6 @@ public class SectionAdapter extends RecyclerView.Adapter<SectionAdapter.UserView
         storageRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {
-                // Got the download URL for 'users/me/profile.png'
                 Glide.with(context)
                         .load(uri)
                         .into(holder.imageSection);
