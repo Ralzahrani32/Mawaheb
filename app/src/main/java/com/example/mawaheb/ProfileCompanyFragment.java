@@ -5,8 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,6 +29,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+
+import java.io.ByteArrayOutputStream;
 
 public class ProfileCompanyFragment extends Fragment {
     private ImageView mSelectImage;
@@ -95,6 +101,43 @@ public class ProfileCompanyFragment extends Fragment {
                 }
             }
         });
+
+        addInquiry.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), addInquiriesActivity.class);
+                startActivity(intent);
+            }
+        });
+        update.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(uri_select == null){
+                    Toast.makeText(getActivity(), "Select image", Toast.LENGTH_SHORT).show();
+                }else if(TextUtils.isEmpty(mName.getText())){
+                    mName.setError("Enter Name");
+                }else if(TextUtils.isEmpty(mEmail.getText())){
+                    mEmail.setError("Enter Email");
+                }else if(TextUtils.isEmpty(mPhone.getText())){
+                    mPhone.setError("Enter Phone");
+                }else if(TextUtils.isEmpty(mLecinceNumber.getText())){
+                    mLecinceNumber.setError("Enter Lecince Number");
+                }else{
+
+                    mSelectImage.setDrawingCacheEnabled(true);
+                    mSelectImage.buildDrawingCache();
+                    Bitmap bitmap = ((BitmapDrawable) mSelectImage.getDrawable()).getBitmap();
+                    ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                    bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+                    byte[] data = baos.toByteArray();
+                    StorageReference storageRef = FirebaseStorage.getInstance().getReference().child("UsersImages").child(user.getUID()+".jpeg");
+
+                    UploadTask uploadTask = storageRef.putBytes(data);
+                    uploadTask.addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception exception) {
+
+                        }
                 }
 
 }
