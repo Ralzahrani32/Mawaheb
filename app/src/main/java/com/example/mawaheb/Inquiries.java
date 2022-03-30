@@ -1,6 +1,8 @@
 package com.example.mawaheb;
 
-public class Inquiries {
+import java.io.Serializable;
+
+public class Inquiries implements Serializable {
     private String id;
     private String creatorId;
     private String title;
