@@ -2,7 +2,9 @@ package com.example.mawaheb;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -37,6 +39,15 @@ public class AddCoordinatorActivity extends AppCompatActivity {
         password = findViewById(R.id.password);
         add = findViewById(R.id.add);
         confirpassword = findViewById(R.id.confirmPassword);
+        mSelectImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_PICK);
+                intent.setType("image/*");
+                startActivityForResult(intent,142);
+            }
+        });
         
+
     }
 }
