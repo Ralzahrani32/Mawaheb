@@ -1,6 +1,9 @@
 package com.example.mawaheb;
 
+import static android.app.Activity.RESULT_OK;
+
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
@@ -82,7 +85,7 @@ public class ProfileCompanyFragment extends Fragment {
                     mName.setText(user.getName());
                     mEmail.setText(user.getEmail()+"");
                     mPhone.setText(user.getPhone()+"");
-                    mTalents.setText(user.getTalent()+"");
+                    mTalents.setText(user.getTalents()+"");
                     mLecinceNumber.setText(user.getLecinceNumber()+"");
                     StorageReference storageRef = FirebaseStorage.getInstance().getReference().child("UsersImages").child(user.getUID()+".jpeg");
                     storageRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
@@ -147,7 +150,7 @@ public class ProfileCompanyFragment extends Fragment {
                             user.setName(mName.getText().toString());
                             user.setPhone(mPhone.getText().toString());
                             user.setEmail(mEmail.getText().toString());
-                            user.setTalent(mTalents.getText().toString());
+                            user.setTalents(mTalents.getText().toString());
                             user.setLecinceNumber(mLecinceNumber.getText().toString());
                             user.setUserType("Company");
 
@@ -192,6 +195,14 @@ public class ProfileCompanyFragment extends Fragment {
     }
     Uri uri_select;
 
-                        }
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == 142 && resultCode == RESULT_OK){
+            uri_select = data.getData();
+            mSelectImage.setImageURI(uri_select);
+        }
+
+    }
 
 }
