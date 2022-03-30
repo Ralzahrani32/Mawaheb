@@ -102,8 +102,35 @@ public class AddCoordinatorActivity extends AppCompatActivity {
                                     public void onFailure(@NonNull Exception exception) {
                                         // Handle unsuccessful uploads
                                     }
-                                }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                                }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {@Override
+                                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                                    User user = new User();
+                                    user.setName(name.getText().toString());
+                                    user.setPhone(phone.getText().toString());
+                                    user.setEmail(email.getText().toString());
+                                    user.setUID(mAuth.getCurrentUser().getUid());
+                                    user.setUserType("Coordinator");
+                                    mDatabase.child("users").child(mAuth.getCurrentUser().getUid()).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+                                            if(task.isSuccessful()){
+                                                Toast.makeText(AddCoordinatorActivity.this, "Coordinator Added Successfully", Toast.LENGTH_SHORT).show();
+                                            }else{
+                                                Toast.makeText(AddCoordinatorActivity.this, ""+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                            }
+                                        }
+                                    });
+                                }
+                                });
+                            }else{
+                                Toast.makeText(AddCoordinatorActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+
+                            }
+                        }
+                    });
                 }
+            }
+        });
 
     }
                         Uri uri;
