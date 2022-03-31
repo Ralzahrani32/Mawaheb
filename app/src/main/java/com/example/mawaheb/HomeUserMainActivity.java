@@ -25,7 +25,11 @@ public class HomeUserMainActivity extends AppCompatActivity {
                         setTitle("Home");
                         getSupportFragmentManager().beginTransaction().replace(R.id.containerLayout,new SectionFragment()).commit();
                         break;
+                    case R.id.chats:
+                        setTitle("Chats");
+                        getSupportFragmentManager().beginTransaction().replace(R.id.containerLayout,new ChatFragment()).commit();
 
+                        break;
                     case R.id.search:
                         setTitle("Search");
                         getSupportFragmentManager().beginTransaction().replace(R.id.containerLayout,new fragment_search()).commit();
