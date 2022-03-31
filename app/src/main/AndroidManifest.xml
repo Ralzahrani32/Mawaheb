@@ -11,7 +11,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Mawaheb">
         <activity
-            android:name=".UserDetailsActivity"
+
+            android:name=".AddCoordinatorActivity"
+            android:exported="false" />
+        <activity
+            android:name=".HomeCoordinatorActivity"
             android:exported="false" />
         <activity
             android:name=".ManageSectionsFragment"
@@ -20,7 +24,7 @@
             android:name=".HomeAdminActivity"
             android:exported="false" />
         <activity
-            android:name=".add_section"
+            android:name=".AddSectionActivity"
             android:exported="false" />
         <activity
             android:name=".InquiriesDetailsActivity"
