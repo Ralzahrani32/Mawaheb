@@ -16,8 +16,10 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class ManageUsersFragment extends Fragment {
+import java.util.ArrayList;
 
+public class ManageUsersFragment extends Fragment {
+    ArrayList<User> users = new ArrayList<>();
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
