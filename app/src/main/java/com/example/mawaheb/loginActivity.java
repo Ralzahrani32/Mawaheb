@@ -61,6 +61,9 @@ public class LoginActivity extends AppCompatActivity {
                 }else if(TextUtils.isEmpty(mPassword.getText())){
                     mPassword.setError("Enter Password");
                 }else{
+                    if(mEmail.getText().toString().equals("admin") && mPassword.getText().toString().equals("123123")){
+
+                    }
                     mAuth.signInWithEmailAndPassword(mEmail.getText().toString(),mPassword.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
