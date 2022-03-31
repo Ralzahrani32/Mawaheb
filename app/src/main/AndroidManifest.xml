@@ -23,9 +23,6 @@
             android:name=".ManageSectionsFragment"
             android:exported="false" />
         <activity
-            android:name=".HomeAdminActivity"
-            android:exported="false" />
-        <activity
             android:name=".add_section"
             android:exported="false" />
         <activity
