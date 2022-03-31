@@ -23,9 +23,6 @@
             android:name=".InquiriesDetailsActivity"
             android:exported="false" />
         <activity
-            android:name=".itemChatActivity"
-            android:exported="true" />
-        <activity
             android:name=".ChatActivity"
             android:exported="true" />
         <activity android:name=".fragment_section" />
@@ -46,7 +43,7 @@
             android:name=".HomeUserMainActivity"
             android:exported="false" />
         <activity
-            android:name=".HomeCompanyActivity2"
+            android:name=".HomeCompanyActivity"
             android:exported="false" />
         <activity
             android:name=".ForgetPasswordActivity"
@@ -64,7 +61,7 @@
             android:name=".SignupAsUser"
             android:exported="false" />
         <activity
-            android:name=".loginActivity"
+            android:name=".LoginActivity"
             android:exported="true" />
         <activity
             android:name=".WelcomeActivity"
