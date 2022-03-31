@@ -29,12 +29,18 @@ public class HomeCompanyActivity extends AppCompatActivity {
                 switch (item.getItemId()){
                     case R.id.talents:
                         setTitle("Home");
-                        getSupportFragmentManager().beginTransaction().replace(R.id.containerLayout,new SectionFragment()).commit();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.containerLayout,new SectionsFragment()).commit();
                         break;
 
                     case R.id.notification:
                         setTitle("Notification");
                         getSupportFragmentManager().beginTransaction().replace(R.id.containerLayout,new NotificationFragment()).commit();
+
+                        break;
+                    case R.id.profile:
+                        setTitle("Profile");
+                        getSupportFragmentManager().beginTransaction().replace(R.id.containerLayout,new ProfileCompanyFragment()).commit();
+
                         break;
                 }
                 return true;
