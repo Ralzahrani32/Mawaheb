@@ -129,6 +129,16 @@ public class ReigsterAsCompanyActivity extends AppCompatActivity {
                                             @Override
                                             public void onComplete(@NonNull Task<Void> task) {
                                                 if(task.isSuccessful()){
+                                                    mDatabase.child("CompanyUsers").child(mAuth.getCurrentUser().getUid()).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                        @Override
+                                                        public void onComplete(@NonNull Task<Void> task) {
+                                                            if(task.isSuccessful()){
+                                                                Toast.makeText(ReigsterAsCompanyActivity.this, "Company Register Successfully", Toast.LENGTH_SHORT).show();
+                                                            }else{
+                                                                Toast.makeText(ReigsterAsCompanyActivity.this, ""+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                                            }
+                                                        }
+                                                    });
                                                     Toast.makeText(ReigsterAsCompanyActivity.this, "Company Register Successfully", Toast.LENGTH_SHORT).show();
                                                 }else{
                                                     Toast.makeText(ReigsterAsCompanyActivity.this, ""+task.getException().getMessage(), Toast.LENGTH_SHORT).show();

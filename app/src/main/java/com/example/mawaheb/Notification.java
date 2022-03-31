@@ -1,13 +1,10 @@
 package com.example.mawaheb;
 
-import java.io.Serializable;
-
-public class Talent implements Serializable {
+public class Notification {
     private String id;
     private String title;
     private String details;
-    private String type;
-    private String creatorId;
+    private String userId;
 
     public String getId() {
         return id;
@@ -33,19 +30,11 @@ public class Talent implements Serializable {
         this.details = details;
     }
 
-    public String getType() {
-        return type;
+    public String getUserId() {
+        return userId;
     }
 
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public String getCreatorId() {
-        return creatorId;
-    }
-
-    public void setCreatorId(String creatorId) {
-        this.creatorId = creatorId;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 }

@@ -127,6 +127,16 @@ private DatabaseReference mDatabase;
                                                 @Override
                                               public void onComplete(@NonNull Task<Void> task) {
                                               if (task.isSuccessful()) {
+                                                  mDatabase.child("TalentUsers").child(mAuth.getCurrentUser().getUid()).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                      @Override
+                                                      public void onComplete(@NonNull Task<Void> task) {
+                                                          if(task.isSuccessful()){
+                                                              Toast.makeText(SignupAsUser.this, "User Register Successfully", Toast.LENGTH_SHORT).show();
+                                                          }else{
+                                                              Toast.makeText(SignupAsUser.this, ""+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                                          }
+                                                      }
+                                                  });
 
                                                   Toast.makeText(SignupAsUser.this, "User Register Successfully", Toast.LENGTH_SHORT).show();
                                               }else{
