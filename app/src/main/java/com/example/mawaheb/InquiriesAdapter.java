@@ -50,7 +50,7 @@ public class InquiriesAdapter extends RecyclerView.Adapter<InquiriesAdapter.Inqu
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(v.getContext(),InquiriesDetailsActivity.class);
-                    intent.putExtra("inquiry", (Serializable) inquiries.get(getAdapterPosition()));
+                    intent.putExtra("inquiry",inquiries.get(getAdapterPosition()));
                     context.startActivity(intent);
                 }
             });
