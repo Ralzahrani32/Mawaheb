@@ -52,7 +52,7 @@ public class LoginActivity extends AppCompatActivity {
         mEmail = findViewById(R.id.email);
         mPassword = findViewById(R.id.password);
 
-        mLogin = findViewById(R.id.login);
+        mLogin = findViewById(R.id.Login);
         mLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
