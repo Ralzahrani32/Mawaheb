@@ -2,6 +2,8 @@ package com.example.mawaheb;
 
 import static android.app.Activity.RESULT_OK;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
@@ -43,6 +45,8 @@ public class ProfileFragment extends Fragment {
     private EditText Phone;
     private EditText Talents;
     private Button Update;
+    private Button logout;
+    private Button addInquiry;
     private DatabaseReference mDatabase;
     User user;
 
@@ -59,6 +63,8 @@ public class ProfileFragment extends Fragment {
         Phone = view.findViewById(R.id.phone);
         Talents = view.findViewById(R.id.talents);
         Update = view.findViewById(R.id.update);
+        logout = view.findViewById(R.id.logout);
+        addInquiry = view.findViewById(R.id.addInquiry);
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
        SelectImage.setOnClickListener(new View.OnClickListener() {
@@ -137,6 +143,33 @@ public class ProfileFragment extends Fragment {
                         });
                     }
                 });
+            }
+        });
+
+        addInquiry.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(),addInquiriesActivity.class);
+                startActivity(intent);
+            }
+        });
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new AlertDialog.Builder(getActivity()).setMessage("Do you want to logout?").setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        FirebaseAuth.getInstance().signOut();
+                        Intent intent = new Intent(getActivity(),loginActivity.class);
+                        startActivity(intent);
+                        getActivity().finish();
+                    }
+                }).setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                }).show();
             }
         });
 
