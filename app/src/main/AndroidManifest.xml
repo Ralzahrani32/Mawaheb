@@ -14,14 +14,9 @@
             android:name=".EditSection"
             android:exported="false" />
         <activity
-            android:name=".SectionAdapter"
-            android:exported="false" />
-        <activity
             android:name=".ShowTalentsActivity"
             android:exported="false" />
-        <activity
-            android:name=".ManageSectionsFragment"
-            android:exported="false" />
+
         <activity
             android:name=".add_section"
             android:exported="false" />
@@ -50,9 +45,7 @@
         <activity
             android:name=".HomeUserMainActivity"
             android:exported="false" />
-        <activity
-            android:name=".HomeCompanyActivity2"
-            android:exported="false" />
+
         <activity
             android:name=".ForgetPasswordActivity"
             android:exported="false" />
