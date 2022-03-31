@@ -4,7 +4,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.view.MenuItem;
 import android.view.View;
@@ -21,13 +23,14 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class loginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
     private EditText mEmail;
     private EditText mPassword;
+    private DatabaseReference mDatabase;
     private Button mLogin;
     private FirebaseAuth mAuth;
-    private DatabaseReference mDatabase;
-
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,53 +39,64 @@ public class loginActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference();
-        TextView forgetPassword= findViewById(R.id.forgetPassword);
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        editor = sharedPreferences.edit();
+        TextView forgetPassword = findViewById(R.id.forgetPassword);
         forgetPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(loginActivity.this,ForgetPasswordActivity.class);
+                Intent intent = new Intent(LoginActivity.this, ForgetPasswordActivity.class);
                 startActivity(intent);
             }
         });
-        mEmail = findViewById(R.id.Email);
-        mPassword = findViewById(R.id.Password);
-        mLogin = findViewById(R.id.Login);
+        mEmail = findViewById(R.id.email);
+        mPassword = findViewById(R.id.password);
+
+        mLogin = findViewById(R.id.login);
         mLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(TextUtils.isEmpty(mEmail.getText())){
                     mEmail.setError("Enter Email");
-                } else{  mAuth.createUserWithEmailAndPassword(mEmail.getText().toString(),mPassword.getText().toString())
-                        .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                if(task.isSuccessful()){
-                                    mDatabase.child("users").child(mAuth.getCurrentUser().getUid()).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-                                        @Override
-                                        public void onComplete(@NonNull Task<DataSnapshot> task) {
-                                            if (!task.isSuccessful()) {
-                                                Toast.makeText(loginActivity.this, ""+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                                            }
-                                            else {
-                                               User user = task.getResult().getValue(User.class);
-                                               if(user.getUserType().equals("User")) {
-                                                   Intent intent = new Intent(loginActivity.this,HomeUserMainActivity.class);
-                                                           startActivity(intent);
-                                               }
-                                               else {
-                                                   Intent intent = new Intent(loginActivity.this, HomeCompanyActivity.class);
-                                                   startActivity(intent);
-                                               }
+                }else if(TextUtils.isEmpty(mPassword.getText())){
+                    mPassword.setError("Enter Password");
+                }else{
+                    mAuth.signInWithEmailAndPassword(mEmail.getText().toString(),mPassword.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if(task.isSuccessful()){
+                                mDatabase.child("users").child(mAuth.getCurrentUser().getUid()).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<DataSnapshot> task) {
+                                        if (!task.isSuccessful()) {
+                                            Toast.makeText(LoginActivity.this, ""+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                        }
+                                        else {
+                                            User user = task.getResult().getValue(User.class);
+                                            editor.putString("userType",user.getUserType());
+                                            editor.commit();
+                                            if(user.getUserType().equals("User")){
+                                                Intent intent = new Intent(LoginActivity.this,HomeUserActivity.class);
+                                                startActivity(intent);
+                                            }else if(user.getUserType().equals("Admin")){
+                                                Intent intent = new Intent(LoginActivity.this,HomeAdminActivity.class);
+                                                startActivity(intent);
+                                            }else if(user.getUserType().equals("Company")){
+                                                Intent intent = new Intent(LoginActivity.this, HomeCompanyActivity.class);
+                                                startActivity(intent);
+                                            }else if(user.getUserType().equals("Coordinator")){
+                                                Intent intent = new Intent(LoginActivity.this, HomeCoordinatorActivity.class);
+                                                startActivity(intent);
                                             }
                                         }
-                                    });
-                                    Toast.makeText(loginActivity.this, "User Login Successfully", Toast.LENGTH_SHORT).show();
-                                }else{
-                                    Toast.makeText(loginActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-
-                                }
+                                    }
+                                });
+                                Toast.makeText(LoginActivity.this, "User Login Successfully", Toast.LENGTH_SHORT).show();
+                            }else{
+                                Toast.makeText(LoginActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                             }
-                        });
+                        }
+                    });
                 }
             }
         });
